@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: default
+
+  application:
+    name: aplicador-promociones
+
+  datasource:
+    url: jdbc:mysql://${aplicador-promociones-db:localhost}:3306/aplicador-promociones-db
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    properties:
+      schema.registry.url: http://schema-registry:8084
+      bootstrap.servers: kafka:29092
+    producer:
+      key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-create-topics: false
+        streams:
+          binder:
+            configuration:
+              state.dir: /tmp
+              commit.interval.ms: 100
+              topology.optimization: all
+              session.timeout.ms: 10000
+              schema.registry.url: http://schema-registry:8084
+              auto.register.schemas: true
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+
+logging:
+  level:
+    ROOT: INFO
+    com.hiberus: DEBUG
+    io.confluent.kafka: ERROR
+    org.apache.kafka: ERROR

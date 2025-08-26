@@ -1,0 +1,9 @@
+server:
+  port: ${random.int(5000,5100)}
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  application:
+    name: enviador-promociones

@@ -1,0 +1,21 @@
+server:
+  port: ${random.int(5000,5100)}
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  application:
+    name: enviador-prendas
+  kafka:
+    properties:
+      bootstrap.servers: localhost:9093
+      schema.registry.url: http://localhost:8085
+      auto-offset-reset: earliest
+      group-id: baeldung
+    producer:
+      key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+environment:
+  prendas-topic: prendas-test

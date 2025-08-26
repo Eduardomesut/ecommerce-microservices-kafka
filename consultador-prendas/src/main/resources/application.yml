@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: default
+
+  application:
+    name: consultador-prendas
+
+  datasource:
+    url: jdbc:mysql://${consultador-prendas-db:localhost}:3306/consultador-prendas-db
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    properties:
+      schema.registry.url: http://schema-registry:8084
+      bootstrap.servers: kafka:29092
+
+  cloud:
+    stream:
+      bindings:
+        prendas_promocionadas:
+          content-type: application/avro
+          destination: prendas_promocionadas
+          consumer:
+            useNativeDecoding: true
+      kafka:
+        binder:
+          auto-create-topics: false
+        streams:
+          binder:
+            stateStoreRetry:
+              maxAttempts: 10
+            configuration:
+              state.dir: /tmp
+              commit.interval.ms: 100
+              topology.optimization: all
+              session.timeout.ms: 10000
+              schema.registry.url: http://schema-registry:8084
+              auto.register.schemas: true
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+        consumer:
+          key-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+          value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+logging:
+  level:
+    ROOT: INFO
+    com.hiberus: DEBUG
+    io.confluent.kafka: ERROR
+    org.apache.kafka: ERROR
+    com.mysql.cj.core: DEBUG

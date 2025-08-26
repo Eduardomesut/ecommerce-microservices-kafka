@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorclientes.infraestructure.kafka.avro",
+  "name": "ClienteKey",
+  "fields": [
+    {
+      "name": "referencia",
+      "type": "string"
+    }
+  ]
+}

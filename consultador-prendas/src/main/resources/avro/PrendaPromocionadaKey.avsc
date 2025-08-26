@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.aplicadorpromociones.infraestructure.kafka.avro",
+  "name": "PrendaPromocionadaKey",
+  "fields": [
+    {
+      "name": "referencia",
+      "type": "string"
+    }
+  ]
+}

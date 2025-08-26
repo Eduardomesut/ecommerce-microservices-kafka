@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: enviador-promociones
+  kafka:
+    properties:
+      schema.registry.url: http://schema-registry:8084
+      bootstrap.servers: kafka:29092
+    producer:
+      key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+logging:
+  level:
+    ROOT: INFO
+    io.confluent.kafka: ERROR
+    org.apache.kafka: ERROR

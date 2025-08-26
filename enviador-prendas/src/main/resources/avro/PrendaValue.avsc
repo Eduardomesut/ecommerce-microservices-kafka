@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorprendas.infraestructure.kafka.avro",
+  "name": "PrendaValue",
+  "fields": [
+    {
+      "name": "referencia",
+      "type": "string"
+    },
+    {
+      "name": "precio",
+      "type": "double"
+    },
+    {
+      "name": "categorias",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ]
+    }
+  ]
+}

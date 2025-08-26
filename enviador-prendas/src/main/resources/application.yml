@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: enviador-prendas
+  kafka:
+    properties:
+      schema.registry.url: http://schema-registry:8084
+      bootstrap.servers: kafka:29092
+    producer:
+      key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+environment:
+  prendas-topic: prendas
+
+logging:
+  level:
+    ROOT: DEBUG
+    io.confluent.kafka: DEBUG
+    org.apache.kafka: DEBUG

@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorpromociones.infraestructure.kafka.avro",
+  "name": "PromocionKey",
+  "fields": [
+    {
+      "name": "nombre",
+      "type": "string"
+    }
+  ]
+}

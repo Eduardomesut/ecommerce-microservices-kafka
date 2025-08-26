@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorprendas.infraestructure.kafka.avro",
+  "name": "PrendaKey",
+  "fields": [
+    {
+      "name": "referencia",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.aplicadorpromociones.infraestructure.kafka.avro",
+  "name": "PrendaPromocionadaValue",
+  "fields": [
+    {
+      "name": "referencia",
+      "type": "string"
+    },
+    {
+      "name": "precio",
+      "type": "double"
+    },
+    {
+      "name": "precio_promocionado",
+      "type": "double"
+    },
+    {
+      "name": "categorias",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ]
+    }
+  ]
+}

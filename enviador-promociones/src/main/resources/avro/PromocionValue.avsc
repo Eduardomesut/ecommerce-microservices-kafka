@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorpromociones.infraestructure.kafka.avro",
+  "name": "PromocionValue",
+  "fields": [
+    {
+      "name": "nombre",
+      "type": "string"
+    },
+    {
+      "name": "descuento",
+      "type": "double"
+    }
+  ]
+}
