@@ -113,6 +113,14 @@ services:
       - "MYSQL_DATABASE=consultador-prendas-db"
       - "MYSQL_ROOT_PASSWORD=root"
 
+  consultador-clientes-db:
+    image: mysql:8.0
+    ports:
+      - "3308:3306"
+    environment:
+      - "MYSQL_DATABASE=consultador-clientes-db"
+      - "MYSQL_ROOT_PASSWORD=root"
+
   consultador-prendas:
     build: ./consultador-prendas
     container_name: consultador-prendas
@@ -123,3 +131,15 @@ services:
       - "8088:8080"
     environment:
       - "consultador-prendas-db=consultador-prendas-db"
+
+
+  consultador-clientes:
+    build: ./consultador-clientes
+    container_name: consultador-clientes
+    restart: always
+    depends_on:
+      - consultador-clientes-db
+    ports:
+      - "8090:8080"
+    environment:
+      - "consultador-clientes-db=consultador-clientes-db"

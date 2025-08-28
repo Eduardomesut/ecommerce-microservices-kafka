@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.enviadorclientes.infraestructure.kafka.avro",
+  "name": "ClienteValue",
+  "fields": [
+    {
+      "name": "referencia",
+      "type": "string"
+    },
+    {
+      "name": "nombre",
+      "type": "string"
+    },
+    {
+      "name": "categorias",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ]
+    }
+  ]
+}
