@@ -199,6 +199,7 @@
 		<module>enviador-clientes</module>
 		<module>aplicador-promociones</module>
 		<module>consultador-prendas</module>
+		<module>consultador-clientes</module>
 
 	</modules>
 

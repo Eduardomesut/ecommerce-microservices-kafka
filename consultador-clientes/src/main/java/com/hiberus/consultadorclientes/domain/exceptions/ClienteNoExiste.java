@@ -1,6 +1,9 @@
 package com.hiberus.consultadorclientes.domain.exceptions;
 
-public class ClienteNoExiste extends RuntimeException {
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class ClienteNoExiste extends Exception {
     public ClienteNoExiste(String message) {
         super(message);
     }
